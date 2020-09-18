@@ -1,7 +1,7 @@
 import requests
 import random
 from datetime import datetime
-import PIL
+from PIL import Image
 
 def getkey(inp):
   return()
@@ -27,4 +27,7 @@ def generate_frame():
   return(url)
 
 req = requests.get(generate_frame())
-print(req)
+im = Image.open("temp_frame.jpeg")
+width, height = im.size
+r, g, b = im.getpixel((random.randint(0, width),random.randint(0, height)))
+print(r, g, b)
