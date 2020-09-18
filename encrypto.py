@@ -1,3 +1,5 @@
+# Encrypto by BEMZ www.bemz.info for A Level Computer Science
+# Hello World!
 import requests
 import random
 from datetime import datetime
@@ -18,7 +20,7 @@ def getkey(string):
     requests.get(generate_frame())
     im = Image.open("temp_frame.jpeg")
     width, height = im.size
-    r, g, b = im.getpixel((random.randint(0, width),random.randint(0, height)))
+    r, g, b = im.getpixel((random.randint(0, height),random.randint(0, width)))
     os.remove('temp_frame.jpeg')
     temp = temp + (inpt * (r+b+g))
     temp += t
