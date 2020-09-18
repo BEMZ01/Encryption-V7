@@ -66,7 +66,6 @@ def generate_frame():
   Download and save a random frame from online webcam
   Returns base URL
   '''
-
   url = "http://109.233.191.130:8080/cam_4.jpg?uniq="
   fin = "0."
   for x in range(0, 15):
