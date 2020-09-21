@@ -11,7 +11,7 @@ import string
 def getkey(string):
   '''
   RUN AFTER generate_frame()
-  Generate a radom key using random objects
+  Generate a radom key using random objects, Returns a HEX key
   '''
   temp = 0
   for x in range(0, len(string)):
@@ -20,7 +20,10 @@ def getkey(string):
     requests.get(generate_frame())
     im = Image.open("temp_frame.jpeg")
     width, height = im.size
-    r, g, b = im.getpixel((random.randint(0, height),random.randint(0, width)))
+    try:
+      r, g, b = im.getpixel((random.randint(0, height),random.randint(0, width)))
+    except IndexError:
+      r, g, b = im.getpixel(100, 250)
     os.remove('temp_frame.jpeg')
     temp = temp + (inpt * (r+b+g))
     temp += t
@@ -68,7 +71,7 @@ def generate_frame():
   Download and save a random frame from online webcam
   Returns base URL
   '''
-  url = "http://109.233.191.130:8080/cam_4.jpg?uniq="
+  url = "http://109.233.191.130:8080/cam_"+str(random.choice([1, 4, 5, 6, 7, 8]))+".jpg?uniq="
   fin = "0."
   for x in range(0, 15):
     fin = fin + str(random.randint(0, 9))
