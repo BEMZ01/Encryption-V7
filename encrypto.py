@@ -72,7 +72,7 @@ def generate_frame():
   Returns base URL
   '''
   url = "http://109.233.191.130:8080/cam_"+str(random.choice([1, 4, 5, 6, 7, 8]))+".jpg?uniq="
-  fin = "0."
+  fin = str(random.randint(0, 1))+"."
   for x in range(0, 15):
     fin = fin + str(random.randint(0, 9))
   url = url + str(fin)
